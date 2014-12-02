@@ -1,0 +1,7 @@
+{
+  "name": "Image Magician",
+  "description": "An image manipulation api for CM",
+  "repository": "https://github.com/heroku/node-js-sample",
+  "logo": "https://node-js-sample.herokuapp.com/python.svg",
+  "keywords": ["python", "PIL", "image"]
+}
