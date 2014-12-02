@@ -18,7 +18,7 @@ ALLOWED_EXTENSIONS = set(['cl', 'zip'])
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.secret_key = '\x89\x90\xf7eLqG\xda}\xdb}\t\xdbZ\xa8\x90b\x12\rT\xa0J\xa2 '
+app.secret_key = '\x84f}\xeb\xe2\x9f\xf7\xb0)\x05C\xcb\xd0w\xcf\x0e\xe8\x81q\xeb\xd2\xbf\x87#'
 
 
 def allowed_file(filename):
@@ -47,10 +47,8 @@ def rotMap(zfile, angle):
             iterChild(child, l, theta)
 
         with zipfile.ZipFile(tempname, 'w') as out:
-
             for i in range(len(l)):
                 out.writestr(l[i]['zipInfoObj'], z.read(l[i]['zipInfoObj']))
-
             out.writestr('Manifest.xml', ET.tostring(root))
 
     resp = make_response(open(tempname).read())
@@ -92,5 +90,5 @@ def main_wimi():
 
 
 if __name__ == '__main__':
-    app.debug = True
+    app.debug = False
     app.run(host='127.0.0.1', port=5280)
