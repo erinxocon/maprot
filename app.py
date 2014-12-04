@@ -62,8 +62,8 @@ def iterChild(child, l, theta):
     i = int(child.find('Floor').text)
     width = l[i]['size'][0]
     height = l[i]['size'][1]
-    x = int(child.find('.Position/X').text)
-    y = int(child.find('.Position/Y').text)
+    x = float(child.find('.Position/X').text)
+    y = float(child.find('.Position/Y').text)
     x_cart = x - 0.5*width
     y_cart = 0.5*height - y
     x_rotated = (x_cart*cos(theta)) - (y_cart*sin(theta))
