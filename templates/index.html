@@ -17,5 +17,27 @@
            <input type=submit value=Upload />
        </p>
    </form>
+   <p>
+       <h2>Instructions:</h2>
+       <ol>
+           <li>In CM, export a map content item by going to the Content menu, and hitting Export Library.  Only export one map item at a time</li>
+           <li>Upload that .cl item to this site and choose 90, 180, or 270 degrees.</li>
+           <li>You will recieve a file that contains the rotated data.  Import it into CM, it will have a new name, so you don't have to worry about a conflict.</li>
+           <li>Replace the floor path images with the rotated paths.</li>
+       </ol>
+   </p>
+   <p>
+       <h2>Notes:</h2>
+       This tool has been tested with map cl files from 4.3.2, 4.6.2, and 5.0.  I've looked at the xml for others and it should be fine. If you find a bug, <a href="mailto:moconnell@fourwindsinteractive.com">e-mail me</a> with the cl file.
+   </p>
+   <p>
+       <h2>Limitations:</h2>
+       <ul>
+           <li>Images must be locally pathed (not served from a web server)</li>
+           <li>This tool makes the assumption that your rotated map is the same scale as the original.  Also aspect ratios are inverted.  If your original was 16:9 the rotated will be 9:16.</li>
+           <li>Perspective maps are not supported.</li>
+           <li>This assumes that things on the map haven't been moved in a rotated state, however this can't always be gaurenteed as labels may get in the way.  You may have to move a couple points to match the rotated file.</li>
+       </ul>
+   </p>
 </body>
 </html>
