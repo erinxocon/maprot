@@ -18,7 +18,6 @@ ALLOWED_EXTENSIONS = set(['cl', 'zip'])
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.secret_key = '\x84f}\xeb\xe2\x9f\xf7\xb0)\x05C\xcb\xd0w\xcf\x0e\xe8\x81q\xeb\xd2\xbf\x87#'
 
 
 def allowed_file(filename):
@@ -27,6 +26,7 @@ def allowed_file(filename):
 
 
 def rotMap(zfile, angle):
+    print('main function invoked')
     l = []
     theta = radians(angle)
     tempdir = tempfile.mkdtemp()
@@ -47,11 +47,14 @@ def rotMap(zfile, angle):
             iterChild(child, l, theta)
 
         with zipfile.ZipFile(tempname, 'w') as out:
+            print l
             for i in range(len(l)):
                 out.writestr(l[i]['zipInfoObj'], z.read(l[i]['zipInfoObj']))
+                print('wrote image to zip')
             out.writestr('Manifest.xml', ET.tostring(root))
 
-    resp = make_response(open(tempname).read())
+    with open(tempname, 'rb') as f:
+        resp = make_response(f.read())
     resp.headers['Content-Type'] = 'application/zip'
     resp.headers['Content-Disposition'] = 'attachment; filename='+name+'.cl'
     shutil.rmtree(tempdir)
@@ -59,6 +62,7 @@ def rotMap(zfile, angle):
 
 
 def iterChild(child, l, theta):
+    print('starting to iter child')
     i = int(child.find('Floor').text)
     width = l[i]['size'][0]
     height = l[i]['size'][1]
@@ -84,11 +88,11 @@ def main_wimi():
             file.save(filePath)
             angle = int(request.form['angle'])
             r = rotMap(filePath, angle)
-            os.remove(filePath)
+            #os.remove(filePath)
             return r
     return render_template('index.html')
 
 
 if __name__ == '__main__':
-    app.debug = False
+    app.debug = True
     app.run(host='127.0.0.1', port=5280)
