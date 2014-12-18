@@ -6,13 +6,13 @@
 <body>
     <h1>Map Rotater</h1>
     <form action="" method='post' enctype='multipart/form-data'>
-        <h3>Angle</h3>
+        <h2>Angle</h2>
         <select name="angle">
             <option value="90" selected>90</option>
             <option value="180">180</option>
             <option value="270">270</option>
         </select>
-        <h3>Choose a map .cl file</h3>
+        <h2>Choose a map .cl file</h2>
         <p><input type=file name=file />
            <input type=submit value=Upload />
        </p>
@@ -35,8 +35,8 @@
        <ul>
            <li>Floor Images must be locally pathed (not served from a web server), this is becasue images that are served via http do not get copied into a cl item, and I need them to determine the canvas size.</li>
            <li>This tool makes the assumption that your rotated map is the same scale as the original.  Also aspect ratios are inverted.  If your original was 16:9 the rotated will be 9:16.</li>
+           <li>This assumes that map assets on the map haven't been moved in a rotated state, however this can't always be gaurenteed as labels can get in the way.  You may have to move a couple points to match the rotated image.</li>
            <li>Perspective maps are not supported.</li>
-           <li>This assumes that things on the map haven't been moved in a rotated state, however this can't always be gaurenteed as labels may get in the way.  You may have to move a couple points to match the rotated file.</li>
        </ul>
    </p>
 </body>
