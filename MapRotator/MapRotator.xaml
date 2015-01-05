@@ -13,6 +13,6 @@
         </ComboBox>
         <Button x:Name="Rotate" Margin="88,109,8,8" Content="ROTATE"></Button>
         <TextBox x:Name="destinationFolder" Margin="8,58,119,88" Text="Please Select a Folder..." VerticalContentAlignment="Center"/>
-        <Button x:Name="chooseFolder" Margin="522,58,7,88" Content="Select a folder"/>
+        <Button x:Name="chooseFolder" Margin="522,58,7,88" Content="Select a folder" Click="openFolderDialog"/>
     </Grid>
 </Window> 
