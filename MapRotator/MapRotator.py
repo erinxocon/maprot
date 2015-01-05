@@ -1,6 +1,8 @@
 import clr
 clr.AddReference('System.Windows.Forms')
+
 import wpf
+import time
 import System
 import Microsoft
 
@@ -26,7 +28,16 @@ class MyWindow(Window):
 
     destinationFolder = property(get_destinationFolder, set_destinationFolder)
 
+    def get_results(self):
+        return self._results
+
+    def set_results(self, value):
+        self._results = value
+
+    results = property(get_results, set_results)
+
     def openFileDiag(self, sender, e):
+        self._results.Content = ''
         dialog = Microsoft.Win32.OpenFileDialog()
         dialog.DefaultExt = '.cl'
         dialog.Filter = 'CL Files (*.cl)|*.cl|ZIP Files (*.zip)|*.zip|All Files (*.*)|*.*'
@@ -41,6 +52,10 @@ class MyWindow(Window):
 
         if result == Forms.DialogResult.OK:
             self._destinationFolder.Text = dialog.SelectedPath
+
+    def done_message(self, sender, e):
+        self._results.Content = 'Done!!!! Check the out put folder!'
+        
 
     
 
