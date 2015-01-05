@@ -1,0 +1,18 @@
+﻿<Window 
+       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+       Title="MapRotator" Height="214" Width="640">
+    <Grid>
+        <TextBox x:Name="path" Margin="8,12,119,134" Text="Please Select a File..." VerticalContentAlignment="Center"/>
+        <Button x:Name="chooseFile" Margin="522,12,7,134" Content="Select a file"></Button>
+        <Label x:Name="Angle" Content="Angle" Margin="10,97,546,27" FontSize="24"/>
+        <ComboBox Margin="11,140,554,9" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <ComboBoxItem x:Name="_90" Content="90" HorizontalAlignment="Center" VerticalAlignment="Center" IsSelected="True"/>
+            <ComboBoxItem x:Name="_180" Content="180" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <ComboBoxItem x:Name="_270" Content="270" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </ComboBox>
+        <Button x:Name="Rotate" Margin="88,109,8,8" Content="ROTATE"></Button>
+        <TextBox x:Name="destinationFolder" Margin="8,58,119,88" Text="Please Select a Folder..." VerticalContentAlignment="Center"/>
+        <Button x:Name="chooseFolder" Margin="522,58,7,88" Content="Select a folder"/>
+    </Grid>
+</Window> 
