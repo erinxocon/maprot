@@ -4,7 +4,7 @@
        Title="MapRotator" Height="214" Width="640">
     <Grid>
         <TextBox x:Name="path" Margin="8,12,119,134" Text="Please Select a File..." VerticalContentAlignment="Center"/>
-        <Button x:Name="chooseFile" Margin="522,12,7,134" Content="Select a file"></Button>
+        <Button x:Name="chooseFile" Margin="522,12,7,134" Content="Select a file" Click="openFileDiag"></Button>
         <Label x:Name="Angle" Content="Angle" Margin="5,97,543,27" FontSize="24" RenderTransformOrigin="0.107,0.45"/>
         <ComboBox Margin="11,140,554,9" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
             <ComboBoxItem x:Name="_90" Content="90" HorizontalAlignment="Center" VerticalAlignment="Center" IsSelected="True"/>
