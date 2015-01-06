@@ -1,4 +1,4 @@
-﻿<Window 
+xaml_str = """<Window 
        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
        Title="Map Rotator 3000" Height="209" Width="640" ResizeMode="NoResize">
@@ -23,4 +23,4 @@
             <StatusBarItem x:Name="results"/>
         </StatusBar>
     </Grid>
-</Window> 
+</Window>"""
