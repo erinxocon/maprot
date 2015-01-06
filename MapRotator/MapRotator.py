@@ -1,15 +1,25 @@
+#import the clr to add references
 import clr
 clr.AddReference('System.Windows.Forms')
+clr.AddReference('IronPython.Wpf')
 
+#general imports
 import wpf
-import time
 import System
 import Microsoft
 
+#import XAML
+#import XAMLstr
+
+#import the window and application objects from System
 from System.Windows import Application, Window, Forms
+
 
 class MyWindow(Window):
     def __init__(self):
+        #with System.IO.StringReader(XAMLstr.xaml_str) as stream:
+        #    wpf.LoadComponent(self, stream)
+
         wpf.LoadComponent(self, 'MapRotator.xaml')
 
     def get_path(self):
