@@ -32,7 +32,6 @@ def rotMap(zfile, angle):
         theta = radians(int(angle))
     except ValueError as e:
         print(e)
-    else:
         theta = angle
 
     tempdir = tempfile.mkdtemp()
@@ -76,15 +75,15 @@ def iterChild(child, l, theta):
     y = float(child.find('.Position/Y').text)
     x_cart = x - 0.5*width
     y_cart = 0.5*height - y
-    if theta != 'mirror_x':
-        x_rotated = (x_cart*cos(theta)) - (y_cart*sin(theta))
-        y_rotated = (x_cart*sin(theta)) + (y_cart*cos(theta))
-    elif theta == 'mirror_x':
+    if theta == 'mirror_x':
         x_rotated = -x_cart
         y_rotated = y_cart
     elif theta == 'mirror_y':
         x_rotated = x_cart
         y_rotated = -y_cart
+    else:
+        x_rotated = (x_cart*cos(theta)) - (y_cart*sin(theta))
+        y_rotated = (x_cart*sin(theta)) + (y_cart*cos(theta))
     x_fin = x_rotated + 0.5*width
     y_fin = 0.5*height - y_rotated
     child.find('.Position/X').text = str(x_fin)
