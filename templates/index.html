@@ -6,11 +6,13 @@
 <body>
     <h1>Map Rotater</h1>
     <form action="" method='post' enctype='multipart/form-data'>
-        <h2>Angle</h2>
+        <h2>Modification</h2>
         <select name="angle">
-            <option value="90" selected>90</option>
-            <option value="180">180</option>
-            <option value="270">270</option>
+            <option value="90" selected>90°</option>
+            <option value="180">180°</option>
+            <option value="270">270°</option>
+            <option value="mirror_x">Reflect X Axis</option>
+            <option value="mirror_y">Reflect Y Axis</option>
         </select>
         <h2>Choose a map .cl file</h2>
         <p><input type=file name=file />
@@ -21,22 +23,22 @@
        <h2>Instructions:</h2>
        <ol>
            <li>In CM, export a map content item by going to the Content menu, and hitting Export Library.  Only export one map item at a time</li>
-           <li>Upload that .cl item to this site and choose 90, 180, or 270 degrees.</li>
+           <li>Upload that .cl item to this site and choose 90, 180, or 270 degrees, or Reflect X Axis.</li>
            <li>You will recieve a file that contains the rotated data.  Import it into CM, it will have a new name, so you don't have to worry about a conflict.</li>
            <li>Replace the floor path images with the rotated paths.</li>
        </ol>
    </p>
    <p>
        <h2>Notes:</h2>
-       This tool has been tested with map cl files from 4.3.2, 4.5, 4.6.2, and 5.0.  I've looked at the xml for others and it should be fine. If you find a bug, <a href="mailto:moconnell@fourwindsinteractive.com">e-mail me</a> with the cl file.  This tool calculates angles in a counter clockwise manner.
+       This tool has been tested with map cl files from 4.3.2, 4.5, 4.6.2, and 5.0.  I've looked at the xml for others and it should be fine. If you find a bug, <a href="mailto:erin.oconnell@fourwindsinteractive.com">e-mail me</a> with the cl file.  This tool calculates angles in a counter clockwise manner.
    </p>
    <p>
        <h2>Limitations:</h2>
        <ul>
            <li>Floor Images must be locally pathed (not served from a web server), this is becasue images that are served via http do not get copied into a cl item, and I need them to determine the canvas size.</li>
-           <li>This tool makes the assumption that your rotated map is the same scale as the original.  Also aspect ratios are inverted.  If your original was 16:9 the rotated will be 9:16.</li>
+           <li>This tool makes the assumption that your rotated map is the same scale as the original.  Also aspect ratios are inverted in 90 and 270 degrees.  If your original was 16:9 the rotated will be 9:16.</li>
            <li>This assumes that map assets on the map haven't been moved in a rotated state, however this can't always be gaurenteed as labels can get in the way.  You may have to move a couple points to match the rotated image.</li>
-           <li>Perspective maps are not supported.</li>
+           <li>Perspective maps are not supported. Yet.</li>
        </ul>
    </p>
 </body>

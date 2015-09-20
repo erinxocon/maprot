@@ -28,7 +28,11 @@ def allowed_file(filename):
 def rotMap(zfile, angle):
     print('main function invoked')
     l = []
-    theta = radians(angle)
+    if angle != 'mirror_x':
+        theta = radians(int(angle))
+    else:
+        theta = angle
+
     tempdir = tempfile.mkdtemp()
     tempname = os.path.join(tempdir, 'Output.cl')
 
@@ -70,8 +74,15 @@ def iterChild(child, l, theta):
     y = float(child.find('.Position/Y').text)
     x_cart = x - 0.5*width
     y_cart = 0.5*height - y
-    x_rotated = (x_cart*cos(theta)) - (y_cart*sin(theta))
-    y_rotated = (x_cart*sin(theta)) + (y_cart*cos(theta))
+    if theta != 'mirror_x':
+        x_rotated = (x_cart*cos(theta)) - (y_cart*sin(theta))
+        y_rotated = (x_cart*sin(theta)) + (y_cart*cos(theta))
+    elif theta == 'mirror_x':
+        x_rotated = -x_cart
+        y_rotated = y_cart
+    elif theta == 'mirror_y':
+        x_rotated = x_cart
+        y_rotated = -y_cart
     x_fin = x_rotated + 0.5*width
     y_fin = 0.5*height - y_rotated
     child.find('.Position/X').text = str(x_fin)
@@ -86,7 +97,7 @@ def main_wimi():
             filename = secure_filename(file.filename)
             filePath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             file.save(filePath)
-            angle = int(request.form['angle'])
+            angle = request.form['angle']
             r = rotMap(filePath, angle)
             #os.remove(filePath)
             return r
