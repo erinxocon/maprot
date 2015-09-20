@@ -28,8 +28,10 @@ def allowed_file(filename):
 def rotMap(zfile, angle):
     print('main function invoked')
     l = []
-    if angle != 'mirror_x' or angle != 'mirror_y':
+    try:
         theta = radians(int(angle))
+    except ValueError as e:
+        print(e)
     else:
         theta = angle
 
