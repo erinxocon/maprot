@@ -58,3 +58,8 @@ target/
 #Other
 *.zip
 *.cl
+
+/.vs/MapRotator/v15/.suo
+/.vscode/
+/Backup/
+/UpgradeLog.htm
