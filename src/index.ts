@@ -1,14 +1,16 @@
-import { app, BrowserWindow } from "electron";
+import { app, BrowserWindow, ipcMain } from "electron";
 import * as path from "path";
 import * as url from "url";
+
 
 let mainWindow: Electron.BrowserWindow;
 
 function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    height: 600,
-    width: 800,
+    height: 685,
+    width: 860,
+    icon: path.join(__dirname, '../rotate.png')
   });
 
   // and load the index.html of the app.
@@ -28,12 +30,26 @@ function createWindow() {
     // when you should delete the corresponding element.
     mainWindow = null;
   });
+
+  mainWindow.webContents.on("did-finish-load", () => {
+    mainWindow.webContents.send("did-finish-load");
+  });
+}
+
+const handleSubmission = () => {
+  ipcMain.on('did-submit-form', (event: Electron.Event, argument: any) => {
+      const { source, destination, name, angle } = argument;
+      console.log('test');
+  });
 }
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on("ready", createWindow);
+app.on("ready", () => {
+  createWindow();
+  handleSubmission();
+});
 
 // Quit when all windows are closed.
 app.on("window-all-closed", () => {

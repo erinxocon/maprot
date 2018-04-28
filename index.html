@@ -1,13 +1,69 @@
 <!DOCTYPE html>
-  <html>
-    <head>
-      <meta charset="UTF-8">
-      <title>Hello World!</title>
-    </head>
-    <body>
-      <h1>Hello World!</h1>
-      We are using node <script>document.write(process.versions.node)</script>,
-      Chrome <script>document.write(process.versions.chrome)</script>,
-      and Electron <script>document.write(process.versions.electron)</script>.
-    </body>
-  </html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="foundation.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="dragdrop">
+<form>
+    <div class="row">
+        <div class="medium-12 columns">
+            <div class="header">
+                <h1>
+                    <img src="rotate.svg" id="logo"/>
+                    Map Rotator
+                </h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="medium-12 columns">
+            <label>
+                Content Library
+                <span class="input-group">
+                    <input class="input-group-field" type="text" name="source" placeholder="Drag Content Library File Here">
+                    <span class="input-group-button">
+                        <button class="button" type="button" id="chooseSource">Choose Content Library</button>
+                    </span>
+                </span>
+            </label>
+            <label>
+                Destination
+                <span class="input-group">
+                    <input class="input-group-field" type="text" name="destination" placeholder="/path/to/your/generated/files">
+                    <span class="input-group-button">
+                        <button class="button" type="button" id="chooseDestination">Choose Directory</button>
+                    </span>
+                </span>
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="medium-6 columns">
+            <label>
+                Name
+                <input type="text" name="name" placeholder="ContentName">
+            </label>
+        </div>
+        <div class="medium-6 columns">
+            <label>
+                Angle of Rotation
+                <input type="number" min="0" max="360" name="angle" placeholder="90">
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="medium-12 columns">
+            <button class="large expanded button" type="submit">Rotate</button>
+        </div>
+    </div>
+</form>
+</div>
+</body>
+<script>
+    // You can also require other files to run in this process
+    require('./dist/renderer.js')
+</script>
+</html>

@@ -1,0 +1,9 @@
+body {
+    margin: 3rem;
+    cursor: default;
+}
+
+img#logo {
+    width: 100px;
+    height: 100px;
+}
