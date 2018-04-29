@@ -2,6 +2,12 @@ import { app, BrowserWindow, ipcMain } from "electron";
 import * as path from "path";
 import * as url from "url";
 
+// this should be placed at top of main.js to handle setup events quickly
+if (require('electron-squirrel-startup')) {
+  app.quit();
+}
+
+
 
 let mainWindow: Electron.BrowserWindow;
 
@@ -10,12 +16,12 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     height: 685,
     width: 860,
-    icon: path.join(__dirname, '../rotate.png')
+    icon: path.join(__dirname, '../html/rotate.png')
   });
 
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
-      pathname: path.join(__dirname, "../index.html"),
+      pathname: path.join(__dirname, "../html/index.html"),
       protocol: "file:",
       slashes: true,
   }));
