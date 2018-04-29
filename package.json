@@ -1,5 +1,5 @@
 {
-  "name": "map-rotator",
+  "name": "maprotator3000",
   "version": "0.1.0",
   "description": "Map Rotation built in typescript",
   "scripts": {
@@ -15,5 +15,12 @@
     "tslint": "^5.9.1",
     "typescript": "^2.6.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@types/tempy": "^0.1.0",
+    "tempy": "^0.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:erinxocon/maprot.git"
+  }
 }
